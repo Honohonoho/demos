@@ -1,0 +1,134 @@
+
+*{
+	margin: 0;
+	padding: 0;
+	font-family: "Arial", "Microsoft YaHei", "SimHei", "SimSun", sans-serif;
+}
+body{
+	height: 100%;
+	width: 900px;
+	margin: 50px auto;
+}
+.layout{
+	width: 900px;
+	margin: 50px auto;
+	padding-right: 50px;
+	box-shadow: 0 3px 3px 3px rgba(0, 0, 0, 0.3);
+}
+header,.main{
+	width: 900px;
+}
+.info{
+	float: left;
+	margin: 30px 50px;
+}
+.info>div{
+	display: inline-block;
+	vertical-align: top;
+	padding-left: 30px;
+	padding-top: 40px;
+}
+.info .position{
+	padding: 10px 0;
+}
+.info>img{
+	border-radius: 50%;
+	width: 150px;
+	height: 150px;
+	display: inline-block;
+}
+.clearfix:after{
+	content: '';
+	display: block;
+	clear: both;
+}
+.contacts{
+	width: 300px;
+	margin-left: 60px;
+	display: inline-block;
+}
+.contacts .title{
+	margin-top: 30px;
+	border-bottom: 4px solid #000;
+	width: 300px;
+	padding-bottom: 10px;
+}
+.contacts .list{
+	list-style: none;
+}
+.contacts .items{
+	padding: 10px 0;
+}
+.work-exp,.edu,.extra{
+	width: 900px;
+	margin: 30px 50px 30px 0px;
+}
+.work-exp .list{
+	margin-right: 50px;
+	width: 700px;
+}
+.work-exp .list>li{
+	padding: 10px 0;
+}
+.main .title{
+	border-bottom: 2px solid #ccc;
+	width: 300px;
+	padding-bottom: 10px;
+}
+.main .list{
+	border-left: 3px solid #ccc;
+	margin: 10px 0px;
+	padding-left: 10px;
+}
+.extra,.main{
+	margin: 30px 50px;
+}
+.extra .title{
+	border-bottom: 2px solid #ccc;
+	width: 300px;
+	padding-bottom: 10px;
+}
+.skills{
+	width: 300px;
+	display: inline-block;
+}
+.skills .flex{
+	display: flex;
+	flex-wrap: wrap;
+}
+.flex .details{
+	padding: 10px 20px 10 0px;
+	width: 100px;
+}
+.self-evalutaion{
+	float: right;
+	display: inline-block;
+	width: 500px;
+	padding-bottom: 30px;
+	margin-left: 50px;
+}
+.self-evalutaion .list{
+	padding-top: 10px;
+}
+.self-evalutaion .items{
+	padding-bottom: 10px;
+}
+.extra .iconfont:before{
+	content: "\e69f";
+}
+@font-face {
+  font-family: "iconfont";  /* project id 273742 */
+  src: url('//at.alicdn.com/t/font_u8dwpg3qe7ncow29.eot');
+  src: url('//at.alicdn.com/t/font_u8dwpg3qe7ncow29.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_u8dwpg3qe7ncow29.woff') format('woff'),
+  url('//at.alicdn.com/t/font_u8dwpg3qe7ncow29.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_u8dwpg3qe7ncow29.svg#iconfont') format('svg');
+}
+.iconfont{
+    font-family:"iconfont" !important;
+    font-size:16px;
+    font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
