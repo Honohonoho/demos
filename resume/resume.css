@@ -131,7 +131,7 @@ header,.main{
 	padding-bottom: 10px;
 }
 .extra .iconfont:before{
-	content: "&#xe639;";
+	content: "\e69f";
 }
 @font-face {
   font-family: "iconfont";  /* project id 273742 */
