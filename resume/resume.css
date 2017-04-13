@@ -63,12 +63,9 @@ header,.main{
 	width: 900px;
 	margin: 30px 50px 30px 0px;
 }
-.work-exp .list{
-	margin-right: 50px;
-	width: 700px;
-}
-.work-exp .list>li{
-	padding: 10px 0;
+.main .list>li{
+	padding: 0 0 10px 30px;
+	position: relative;
 }
 .main .title{
 	border-bottom: 2px solid #ccc;
@@ -76,9 +73,29 @@ header,.main{
 	padding-bottom: 10px;
 }
 .main .list{
-	border-left: 3px solid #ccc;
-	margin: 10px 0px;
+	width: 700px;
+	margin: 20px 0px;
 	padding-left: 10px;
+	list-style: none;
+}
+.main .items:before{
+	content: '';
+    width: 1px;
+    background-color: #b7b7b7;
+    position: absolute;
+    top: 13px;
+    bottom: -2px;
+    left: 0;
+}
+.list .dot{
+	width: 0;
+	height: 0;
+    border: 6px solid #000;
+    border-radius: 6px;
+    display: inline-block;
+    position: absolute;
+    margin-left: -35px;
+    margin-top: 2px;
 }
 .extra,.main{
 	margin: 30px 50px;
