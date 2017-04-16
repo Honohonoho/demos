@@ -208,13 +208,13 @@
 .char-detail .name {
 	font-weight: bold;
 	padding-bottom: 10px;
-	width: 300px;
+	width: 305px;
 }
 .char-detail .text {
 	color: #777;
 	line-height: 1.75;
 	font-size: 15px;
-	width: 300px;
+	width: 305px;
 }
 .related-performance {
 	text-align: center;
