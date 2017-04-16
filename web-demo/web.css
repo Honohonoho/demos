@@ -208,11 +208,13 @@
 .char-detail .name {
 	font-weight: bold;
 	padding-bottom: 10px;
+	width: 300px;
 }
 .char-detail .text {
 	color: #777;
 	line-height: 1.75;
 	font-size: 15px;
+	width: 300px;
 }
 .related-performance {
 	text-align: center;
@@ -224,12 +226,13 @@
 }
 .perf-list {
 	list-style: none;
-	margin: 0 100px;
+	margin: 0 auto;
+	width: 1000px;
 }
 .perf-list .perf-detail {
 	float: left;
 	width: 300px;
-	margin: 0 40px;
+	margin: 0 15px;
 }
 .perf-detail img {
 	width: 300px;
