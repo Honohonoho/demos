@@ -182,20 +182,14 @@
 	padding: 50px 0;
 	background-color: #edfbff;
 	width: 100%;
-	overflow: hidden;
 }
 .char-list {
-	margin-top: 100px;
+	margin: 100px auto;
 	margin-bottom: 0;
-	float: left;
-	position: relative;
-	left: 50%;
+	width: 1050px;
 }
 .char-list ul{
 	list-style: none;
-	float: left;
-	position: relative;
-	left: -50%;
 }
 .char-list .char-detail {
 	float: left;
