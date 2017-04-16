@@ -176,24 +176,27 @@
 }
 .characters {
 	text-align: center;
-	padding: 50px 0 50px 40px;
+	padding: 50px 0;
 	background-color: #edfbff;
+	width: 100%;
 }
 .char-list {
-	list-style: none;
 	margin: 100px auto;
 	margin-bottom: 0;
 }
-.char-list .char-detail {
-	width: 286px;
+.char-list ul{
+	list-style: none;
 	float: left;
-	margin: 0 70px;
-	margin-bottom: 20px;
+	position: relative;
+	left: 50%;
 }
-.clearfix {
-	content: "";
-	display: block;
-	clear: both;
+.char-list .char-detail {
+	float: left;
+	width: 286px;
+	margin-bottom: 20px;
+	padding: 0 25px;
+	position: relative;
+	right: 50%;
 }
 .char-detail .pic img {
 	width: 282px;
