@@ -114,6 +114,7 @@
 }
 .pro-exp {
 	background-color: #f1f1f1;
+	overflow: hidden;
 }
 .pro-exp .title {
 	text-align: center;
@@ -181,20 +182,26 @@
 	padding: 50px 0;
 	background-color: #edfbff;
 	width: 100%;
+	overflow: hidden;
 }
 .char-list {
-	margin: 100px auto;
+	margin-top: 100px;
 	margin-bottom: 0;
-	width: 1050px;
+	float: left;
+	position: relative;
+	left: 50%;
 }
 .char-list ul{
 	list-style: none;
+	float: left;
+	position: relative;
+	left: -50%;
 }
 .char-list .char-detail {
 	float: left;
 	width: 300px;
 	margin-bottom: 20px;
-	padding: 0 25px;
+	margin: 0 25px;
 }
 .char-detail .pic img {
 	width: 282px;
@@ -220,19 +227,27 @@
 	text-align: center;
 	background-color: #f1f1f1;
 	padding-bottom: 50px;
+	overflow: hidden;
+	width: 100%;
 }
 .related-performance h2 {
 	padding: 50px 0;
 }
 .perf-list {
+	float: left;
+	position: relative;
+	left: 50%;
+}
+.perf-list ul{
 	list-style: none;
-	margin: 0 auto;
-	width: 1000px;
+	float: left;
+	position: relative;
+	left: -50%;
 }
 .perf-list .perf-detail {
 	float: left;
 	width: 300px;
-	margin: 0 15px;
+	margin: 0 20px;
 }
 .perf-detail img {
 	width: 300px;
