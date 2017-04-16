@@ -157,6 +157,8 @@
 	text-align: right;
 	position: absolute;
 	top: 0;
+	right: 50%;
+	margin-right: 125px;
 	width: 30em;
 }
 .exp-detail:nth-child(even)>.content {
@@ -183,20 +185,16 @@
 .char-list {
 	margin: 100px auto;
 	margin-bottom: 0;
+	width: 1050px;
 }
 .char-list ul{
 	list-style: none;
-	float: left;
-	position: relative;
-	left: 50%;
 }
 .char-list .char-detail {
 	float: left;
-	width: 286px;
+	width: 300px;
 	margin-bottom: 20px;
 	padding: 0 25px;
-	position: relative;
-	right: 50%;
 }
 .char-detail .pic img {
 	width: 282px;
