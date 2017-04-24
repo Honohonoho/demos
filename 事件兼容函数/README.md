@@ -8,7 +8,7 @@
 		}
 	}
 
-事件处理程序的作用域不相同，addEventListener的作用域是元素本身，this是指的触发元素，
+解决事件处理程序的作用域不相同，addEventListener的作用域是元素本身，this是指的触发元素，
 而attachEvent事件处理程序会在全局变量内运行，this是window，
 
 	function addEvent(node, type, handler) {
