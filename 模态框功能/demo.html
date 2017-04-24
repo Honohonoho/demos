@@ -4,99 +4,106 @@
 		<title>demo</title>
 		<meta charset="UTF-8">
 		<style>
-			.tab {
-				width: 600px;
-				padding: 20px 10px;
-				margin: 20px auto;
-				border: 1px solid #ccc;
-				border-radius: 4px;
-			}
-			ul,li {
+			body {
 				margin: 0;
 				padding: 0;
 			}
-			li {
-				list-style: none;
+			.btn-wrap {
+				padding: 10px 10px;
 			}
-			.tab-header {
-				border-bottom: 1px solid #ccc;
-			}
-			.tab-header > li {
-				float: left;
-				padding: 10px 20px;
-				color: red;
-				cursor: pointer; //可点击或用a链接
-				border-top: 1px solid #fff; //避免点击时产生1px的抖动
-				border-left: 1px solid #fff; //避免点击时产生1px的抖动
-				border-right: 1px solid #fff; //避免点击时产生1px的抖动
-				
-			}
-			.tab-header .active {
-				border: 1px solid #ccc;
-				border-bottom-color: #fff;
-				margin-bottom: -1px;
-				border-radius: 4px 4px 0 0;
-				color: #333;
-			}
-			.clearfix:after {
-				content: "";
-				display: block;
-				clear: both;
-			}
-			.tab-content {
-				padding: 20px 10px;
-
-			}
-			.tab-content > li{
+			.hidden {
 				display: none;
 			}
-			.tab-content .active {
-				display: block; 
+			.cover {
+				height: 100%;
+				width: 100%;
+				background: rgba(0,0,0,0.5);
+				position: absolute;
+				top: 0;
+			}
+			.container {
+				position: absolute;
+				width: 400px;
+				height: 200px;
+				top: 50%;
+				left: 50%;
+				margin-top: -100px;
+				margin-left: -200px;
+				background-color: #fff;
+			}
+			.header .title {
+				font-size: 18px;
+				padding-left: 10px;
+				font-weight: bold;
+			}
+			.header .close {
+				position: absolute;
+				right: 10px;
+				top: 20px;
+				cursor: pointer;
+			}
+			.content {
+				border-top: 1px solid #ccc;
+				border-bottom: 1px solid #eee;
+			}
+			.content > p {
+				margin: 20px 10px;
+			}
+			.footer .btn-cancel {
+				position: absolute;
+				padding: 10px 0;
+				right: 50px;
+				cursor: pointer;
+			}
+			.footer .btn-confirm {
+				position: absolute;
+				padding: 10px 0;
+				right: 10px;
+				cursor: pointer;
 			}
 		</style>
-
 	</head>
 	<body>
-		<div class="tab">
-			<ul class="tab-header clearfix">
-				<li class="active">选项1</li>
-				<li>选项2</li>
-				<li>选项3</li>
-			</ul>
-			<ul class="tab-content">
-				<li class="active">内容1</li>
-				<li>内容2</li>
-				<li>内容3</li>
-			</ul>
+		<div class="btn-wrap">
+			<button class="btn">点我</button>
+		</div>
+		<div class="cover hidden">
+			<div class="container">
+				<div class="header">
+					<p class="title">我是标题</p>
+					<div class="close">×</div>
+				</div>
+				<div class="content">
+					<p>我是内容1</p>
+					<p>我是内容2</p>
+				</div>
+				<div class="footer">
+					<div class="btn-cancel">取消</div>
+					<div class="btn-confirm">确认</div>
+				</div>
+			</div>
 		</div>
 
 		<script>
 
-			var tabHeader = $(".tab-header");
-			var tabHeaderLi = $$(".tab-header>li");
-			var tabContentLi = $$(".tab-content>li");
-
-			tabHeader.addEventListener("click",function(e){
-				var clickNode = e.target;
-				if(clickNode.tagName.toLowerCase() === "li"){
-					for (var i = 0; i < tabHeaderLi.length; i++) { //移除所有类
-					 	tabHeaderLi[i].classList.remove("active");
-					 } 
-					 clickNode.classList.add("active");  //给当前点击的节点添加类
-					 var index = [].indexOf.call(tabHeaderLi,clickNode);//点击节点的位置下标
-					 //console.log(index) 检查断点
-					 for (var i = 0; i < tabContentLi.length; i++) {
-					 	tabContentLi[i].classList.remove("active");
-					 }
-					 tabContentLi[index].classList.add("active");  
+			var btn = $(".btn");
+			var cover = $(".cover");
+			btn.addEventListener("click",function(){
+				cover.classList.remove("hidden");
+			});
+			cover.addEventListener("click",cancelHide);
+			// 定义cancelHide函数，点击cover,close,btn-cancel可以隐藏
+			function cancelHide(e) {
+				console.log(e.target.className);
+				var className = e.target.className;
+				if (className==="cover" | className==="close" | className==="btn-cancel") {
+					e.stopPropagation(); //阻止事件传递
+					cover.classList.add("hidden");
 				}
-			})
+			}
 			//自定义函数
 			function $(id) {
 				return document.querySelector(id);
-			}
-			function $$(cls) {
-				return document.querySelectorAll(cls);
 			}
 
 		</script>
