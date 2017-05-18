@@ -1,1 +1,1 @@
-预览 http://book.jirengu.com/jirengu-inc/js-works/projects/demos/demo.html
+预览 https://honohonoho.github.io/demos/card/card.html
