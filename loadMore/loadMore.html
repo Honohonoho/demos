@@ -1,0 +1,127 @@
+ <!DOCTYPE>
+ <html>
+ 	<head>
+ 		<meta charset="UTF-8">
+ 		<title>demo</title>
+ 		<style>
+ 			body {
+ 				margin: 0;
+ 				padding: 0;
+ 			}
+ 			.container>div{
+ 				margin: 10px 10px;
+ 				padding: 10px 10px;
+ 				border: 1px solid #ccc;
+ 			}
+ 			.btn{
+ 				display: block;
+ 				text-decoration: none;
+ 				color: #E27272;
+ 				width: 100px;
+ 				margin: 10px auto;
+ 				text-align: center;
+ 				border: 1px solid #E27272;
+ 				padding: 15px 10px;
+ 				border-radius: 4px;
+ 			}
+ 		</style>
+ 	</head>
+ 	<body>
+ 		<div class="container">
+ 			<div>内容1</div>
+ 			<div>内容2</div>
+ 			<div>内容3</div>
+ 		</div>
+ 		<a href="javascript:void(0)" class="btn" id="load-more">加载更多↓</a><!--javascript:void(0)点击链接不会跳转至顶部-->
+ 	</body>
+
+    <script>
+    	var btn = document.querySelector("#load-more");
+        var container = document.querySelector(".container");
+        var pageIndex = 4;//记录发送的下标
+        var isDataArrive = true; //初始化状态锁，解决用户重复点击按钮
+
+    	btn.addEventListener("click",function(e){
+            e.preventDefault(); //与javascript:void(0)作用相同，取消a链接的跳转
+    		if (!isDataArrive) {
+                return; //如果正在请求数据，那这次点击什么都不做
+            }
+            loadData(function(news){  //加载数据
+                renderPage(news)   //把函数作为参数callback传递
+                pageIndex = pageIndex + 4;
+                isDataArrive = true;
+            })
+            isDataArrive = false;
+        });
+
+        function loadData(callback){  //封装请求数据功能
+       //   ajax("get",url,data,isSuccess,isError)
+            //或写成JSON格式
+            ajax({
+                type: "get",
+                url: "/loadMore",
+                data: {
+                    index: pageIndex,
+                    length: 4
+                },
+                isSuccess: callback,
+                isError: function(){
+                    console.log("error")
+                }
+            })  //要传递的参数
+        }
+
+        function renderPage(news){ //封装渲染功能
+            var fragment = document.createDocumentFragment(); //创建DOM片段，添加数据
+            for (var i = 0; i < news.length; i++) {
+                var node = document.createElement("div");
+                node.innerText = news[i];// 用innerHTML有安全隐患
+                fragment.appendChild(node);
+            }
+            container.appendChild(fragment);
+        }
+
+        function ajax(options){   //封装ajax功能
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function(){
+                if (xhr.readyState === 4 &&(xhr.status ===200 || xhr.status === 304)) {
+                    var result = JSON.parse(xhr.responseText);
+                    options.isSuccess(result);
+                }
+            }
+            var query = "?";
+            for(key in options.data){
+                query += key + "=" + options.data[key] + "&";
+            }
+            query = query.substr(0,query.length-1); //去掉末尾
+            xhr.open(options.type, options.url + query ,true) //拼成"/loadMore?index="+pageIndex+"&length=5"
+            xhr.send();
+        }
+
+/* 未封装的代码
+        var btn = document.querySelector("#load-more");
+        var container = document.querySelector(".container");
+        var pageIndex = 4;
+
+        btn.addEventListener("click",function(){
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState === 4 &&(xhr.status ===200 || xhr.status == 304)){
+                    var result = JSON.parse(xhr.responseText);
+                    console.log(result);
+                    var fragment = document.createDocumentFragment(); //创建DOM片段，添加数据
+                    for (var i = 0; i < result.length; i++) {
+                        var node = document.createElement("div");
+                        node.innerText = result[i];//innerHTML有安全隐患
+                        fragment.appendChild(node);
+                    }
+                    container.appendChild(fragment);
+                    pageIndex = pageIndex + 4;
+                }
+            }
+            xhr.open("get","/loadMore?index="+pageIndex+"&length=4",true)
+            xhr.send()
+        })
+        */
+    </script>
+ </html>  
