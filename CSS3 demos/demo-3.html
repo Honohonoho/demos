@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>css3</title>
+	<meta charset="utf-8">
+	<style>
+		.pic{
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: url(http://www.33lc.com/article/UploadPic/2012-8/2012891135223990.jpg) center center no-repeat;
+			background-size: cover;
+		}
+		.pic:before{
+			content: '';
+			display: block;
+			width: 50%;
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			background: linear-gradient(to left,rgba(255,255,255,0),rgba(255,192,203,0.9));
+		}
+		.pic:after{
+			content: '';
+			display: block;
+			width: 50%;
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			background: linear-gradient(to right,rgba(255,255,255,0),rgba(238,232,170,0.9));
+		}
+	</style>
+</head>
+<body>
+	<div class="pic"></div>
+</body>
+</html>

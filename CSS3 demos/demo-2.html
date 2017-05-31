@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>css3</title>
+    <style type="text/css">
+        body{
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-color: #6495ED;
+        }
+        .ct-1{
+            position: relative;
+            margin: 40px;
+            width: 100px;
+            height: 200px;
+        }
+        .ct-1 .item-1{
+            position: absolute;
+            margin: 40px;
+            width: 9px;
+            height: 40px;
+            background-color: #fff;
+            animation: 1s load1 infinite linear;
+            animation-delay: 0.2s;
+        }
+        .ct-1 .item-1:before{
+            position: absolute;
+            content: '';
+            width: 9px;
+            height: 40px;
+            background-color: #fff;
+            left: -15px;
+            animation: 1s load1 infinite linear;
+        }
+        .ct-1 .item-1:after{
+            position: absolute;
+            content: '';
+            width: 9px;
+            height: 40px;
+            background-color: #fff;
+            left: 15px;
+            animation: 1s load1 infinite linear;
+            animation-delay: 0.4s;
+        }
+        @keyframes load1{
+            0%{
+                height: 40px;
+                box-shadow: 0 0 #fff;
+            }
+            20%{
+                height: 50px;
+                box-shadow: 0 -10px #fff;
+            }
+            100%{
+                height: 40px;
+                box-shadow: 0 0 #fff;
+            }
+        }
+        .ct-2 .item-1{
+            margin: 40px;
+            width: 80px;
+            height: 80px;
+            border: 20px solid rgba(106,90,205,0.2);
+            border-radius: 50%;
+            border-top: 20px solid rgba(106,90,205,1);
+            animation: 1s load2 infinite linear;
+        }
+        @keyframes load2{
+            0%{
+                transform: rotate(0);
+            }
+            100%{
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+load动画
+<div class="ct-1">
+    <div class="item-1">
+    </div>
+</div>
+<div class="ct-2">
+    load动画
+    <div class="item-1">
+        <div></div>
+    </div>
+</div>
+
+</body>
+</html>
